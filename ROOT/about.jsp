@@ -26,7 +26,7 @@
 		<img alt="Welcome to Coffee Shop!" src="Images/banner_coffee.png" height="200" />
 			<section id="main">
 				<h1>About Coffee Shop</h1>
-				<p>It's a coffee shop!</p>
+				<p>It's a coffee shop</p>
 			</section>
 			<div id="sidebar"></div>
 		</div>
