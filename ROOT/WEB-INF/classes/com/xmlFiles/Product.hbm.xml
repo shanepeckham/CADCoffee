@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+	<class name="com.coffeeshop.Product" table="tbl_products" >
+	     <id name="id" type="long" column ="product_id"/>
+	     <property name="name" type="string" column="ProductName"/>
+	     <property name="description" type="string" column="ProductDesc"/>
+	     <property name="price" type="double" column="ProductPrice"/>
+	     <property name="imageName" type="string" column="ImageName"/>
+	</class>
+</hibernate-mapping>

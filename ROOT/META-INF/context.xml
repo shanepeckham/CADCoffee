@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/hibernate-sample">
+  <Resource auth="Container"
+  			driverClassName="com.mysql.jdbc.Driver" 
+  			maxActive="30"
+  			maxIdle="10" 
+  			maxWait="10000" 
+  			name="jdbc/ranjithrdb" 
+  			password="46ba582b"
+  			type="java.sql.DataSource" 
+  			url="jdbc:mysql://us-cdbr-azure-west-b.cleardb.com/ranjithAgLJTbcEb" 
+  			username="b4502bbc6e6431"/>
+</Context>

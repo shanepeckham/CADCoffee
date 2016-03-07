@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+	<class name="com.coffeeshop.Order" table="tbl_orders" >
+	     <id name="code" type="string" column ="OrderCode"/>
+	     <property name="customerEmail" type="string" column="CustomerEmail"/>
+	     <property name="customerAddress" type="string" column="CustomerAddress"/>
+	     <property name="status" type="string" column="OrderStatus"/>
+	     <property name="deliveryDate" type="date" column="OrderDeliveryDate"/>
+	     <many-to-one name="productId" class="com.coffeeshop.Product" cascade="save-update" lazy="false"></many-to-one>
+	     <property name="quantity" type="int" column="Quantity"/>
+	     <property name="finalPrice" type="double" column="FinalPrice"/>
+	</class>
+</hibernate-mapping>
