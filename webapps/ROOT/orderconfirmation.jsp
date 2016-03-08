@@ -29,7 +29,7 @@
 		// if these fields are not set, you will see an error/warning page.
 		//
 		final String userName = "shairanadiasmith@gmail.com";
-		final String password = "Nestle123";
+		final String password = "";
 		final String fromEmailId = "order@coffeeshop.com";
 	%>
 	<div id="page">
