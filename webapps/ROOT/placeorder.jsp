@@ -70,7 +70,7 @@
 						</li>
 						<li class="shiping">
 							<div class="fieldcontainer" data-role="fieldcontain">
-								<label for="orderShipping">Shipping Address</label>
+								<label for="orderShipping">Building Location</label>
 								<textarea rows="4" id="orderShipping" name="orderShipping"
 									data-val-required="You must specify a shipping address."
 									data-val="true"></textarea>
@@ -114,7 +114,7 @@
 			</script>
 
 		</div>
-		<footer> &copy;2014 - Coffee Shop </footer>
+		<footer> &copy;2016 - Coffee Shop </footer>
 	</div>
 </body>
 </html>
