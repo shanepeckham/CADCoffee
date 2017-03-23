@@ -25,12 +25,12 @@
 		<div id="body">
 		<img alt="Welcome to Coffee Shop!" src="Images/banner_coffee.png" height="200" />
 			<section id="main">
-				<h1>About Coffee Shop</h1>
-				<p>This is my production site!!</p>
+				<h1>About CAD Coffee Shop</h1>
+				<p>CAD Coffee</p>
 			</section>
 			<div id="sidebar"></div>
 		</div>
-		<footer> &copy;2014 - Coffee Shop </footer>
+		<footer> &copy;2017- CAD Coffee Shop </footer>
 	</div>
 </body>
 </html>

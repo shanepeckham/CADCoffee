@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Coffee Shop - Place Your Order</title>
+<title>CAD Coffee Shop - Place Your Order</title>
 <link href="Content/Site.css" rel="stylesheet" />
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <script src="Scripts/modernizr-2.5.3.js"></script>
@@ -80,6 +80,7 @@
 								</div>
 							</div>
 						</li>
+						<!--
 						<li class="shiping">
 							<div class="fieldcontainer" data-role="fieldcontain">
 								<label for="orderShipping">Shipping Address</label>
@@ -92,6 +93,7 @@
 								</div>
 							</div>
 						</li>
+						-->
 						<li class="quantity">
 							<div class="fieldcontainer" data-role="fieldcontain">
 								<label for="orderQty">Quantity</label> <input type="text"
@@ -111,26 +113,23 @@
                 <script type="text/javascript">
                 function postAPI() {
                    
-                    var location =  $("#orderShipping").val();
+                 //   var location =  $("#orderShipping").val();
                     var name = $("#name").val();
                     var quantity = $("#orderQty").val();
                     var product =  '<%=product.getName()%>';
                     var total = (parseFloat($("#orderPrice").text()).toFixed(2) * $("#orderQty").val()).toFixed(2);
                     var email = $("#orderEmail").val();
-                    var logicAppURL = '<%=System.getenv("DIAGNOSTICS_AZUREBLOBCONTAINERSASURL")%>';
-                    
-                    alert ('url is ' + logicAppURL);
-                    
-                     var order = {"name" : name, "location": location, "quantity": quantity, "product": product, "total": total, "emailAddress": email};
+                    var logicAppURL = '<%=System.getenv("logicAppURL")%>';
+                                   
+              //       var order = {"name" : name, "location": location, "quantity": quantity, "product": product, "total": total, "emailAddress": email};
+			         var order = {"name" : name, "quantity": quantity, "product": product, "total": total, "emailAddress": email};
                     $.ajax({
                         type: "POST",
                          headers: {
-                            'Content-Type':'application/json',
-                            'Ocp-Apim-Trace':'true',
-                            'Ocp-Apim-Subscription-Key':'f8a3bcc16d0944d89c8bd02ab93bfc99'
+                            'Content-Type':'application/json'
                         },
                         data :JSON.stringify(order),
-                        url: "https://msapim.azure-api.net/msorderhandling.azurewebsites.net/api/placeOrder",
+                        url: logicAppURL,
                     });
                 }
                 </script>
@@ -172,7 +171,7 @@ automatically in just a few seconds.
     </script>
 
 		</div>
-		<footer> &copy;2016 - Coffee Shop </footer>
+		<footer> &copy;2017 - Coffee Shop </footer>
 	</div>
 </body>
 </html>

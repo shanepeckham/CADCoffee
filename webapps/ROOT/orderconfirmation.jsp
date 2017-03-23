@@ -133,7 +133,7 @@
 		                        + "\n\n Your order will be delivered to the following address: \n\n " + shippingAddress
 		                        + "\n\n Thank you!");
 
-						Transport.send(message);
+<!--						Transport.send(message);   -->
                    
 						out.println("<h1>Order Confirmation</h1>");
 						out.println("<div class=\"message info\">");
