@@ -147,7 +147,7 @@
 			%>
 
 		</div>
-		<footer> &copy;2014 - Coffee Shop </footer>
+		<footer> &copy;2017 - Coffee Shop </footer>
 	</div>
         
         <!--
