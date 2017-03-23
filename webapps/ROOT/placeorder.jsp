@@ -56,6 +56,18 @@
 								<p class="description"><%= product.getDescription() %></p>
 							</div>
 						</li>
+                        <li class="name">
+							<div class="fieldcontainer" data-role="fieldcontain">
+								<label for="orderEmail">Name</label> <input
+									type="text" id="name" name="name"
+									data-val-required="Please provide your name"
+									data-val="true" />
+								<div>
+									<span class="field-validation-valid"
+										data-valmsg-for="name" data-valmsg-replace="true"></span>
+								</div>
+							</div>
+						</li>
 						<li class="email">
 							<div class="fieldcontainer" data-role="fieldcontain">
 								<label for="orderEmail">Your Email Address</label> <input
@@ -70,7 +82,7 @@
 						</li>
 						<li class="shiping">
 							<div class="fieldcontainer" data-role="fieldcontain">
-								<label for="orderShipping">Building Location</label>
+								<label for="orderShipping">Shipping Address</label>
 								<textarea rows="4" id="orderShipping" name="orderShipping"
 									data-val-required="You must specify a shipping address."
 									data-val="true"></textarea>
@@ -89,12 +101,39 @@
 						</li>
 					</ul>
 					<p class="actions">
-						<input type="hidden" name="ProductId" value="<%=product.getId()%>" /> <input
-							type="submit" value="Place Order" data-role="none"
+						<input type="hidden" name="ProductId" value="<%= product.getId() %>" /> <input
+							type="submit" value="Place Order" data-role="none" onclick="postAPI();"
 							data-inline="true" />
 					</p>
 				</fieldset>
 			</form>
+                
+                <script type="text/javascript">
+                function postAPI() {
+                   
+                    var location =  $("#orderShipping").val();
+                    var name = $("#name").val();
+                    var quantity = $("#orderQty").val();
+                    var product =  '<%=product.getName()%>';
+                    var total = (parseFloat($("#orderPrice").text()).toFixed(2) * $("#orderQty").val()).toFixed(2);
+                    var email = $("#orderEmail").val();
+                    var logicAppURL = '<%=System.getenv("DIAGNOSTICS_AZUREBLOBCONTAINERSASURL")%>';
+                    
+                    alert ('url is ' + logicAppURL);
+                    
+                     var order = {"name" : name, "location": location, "quantity": quantity, "product": product, "total": total, "emailAddress": email};
+                    $.ajax({
+                        type: "POST",
+                         headers: {
+                            'Content-Type':'application/json',
+                            'Ocp-Apim-Trace':'true',
+                            'Ocp-Apim-Subscription-Key':'f8a3bcc16d0944d89c8bd02ab93bfc99'
+                        },
+                        data :JSON.stringify(order),
+                        url: "https://msapim.azure-api.net/msorderhandling.azurewebsites.net/api/placeOrder",
+                    });
+                }
+                </script>
 
 			<script type="text/javascript">
 				$(function() {
@@ -110,8 +149,27 @@
 						}
 						total.text("$" + (price * quantity).toFixed(2));
 					});
+
 				});
 			</script>
+                
+                <!--
+To collect end-user usage analytics about your application,
+insert the following script into each page you want to track.
+Place this code immediately before the closing </head> tag,
+and before any other scripts. Your first data will appear
+automatically in just a few seconds.
+-->
+    <script type="text/javascript">
+        var appInsights=window.appInsights||function(config){
+            function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;for(s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
+        }({
+            instrumentationKey:"14d0422b-d48f-4c41-8f23-b44b3c6e55eb"
+        });
+        
+        window.appInsights=appInsights;
+        appInsights.trackPageView();
+    </script>
 
 		</div>
 		<footer> &copy;2016 - Coffee Shop </footer>

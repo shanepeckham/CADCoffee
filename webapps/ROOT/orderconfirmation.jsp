@@ -35,7 +35,7 @@
 	<div id="page">
 		<header>
 			<p class="site-title">
-				<a href="">Coffee Shop</a>
+				<a href="">Coffee Shop Deliveries in your building</a>
 			</p>
 			<nav>
 				<ul>
@@ -134,7 +134,7 @@
 		                        + "\n\n Thank you!");
 
 						Transport.send(message);
-
+                   
 						out.println("<h1>Order Confirmation</h1>");
 						out.println("<div class=\"message info\">");
 						out.println("<p>Thank you for placing the order. You will receive a confirmation email shortly.</p>");
@@ -147,7 +147,25 @@
 			%>
 
 		</div>
-		<footer> &copy;2016 - Coffee Shop </footer>
+		<footer> &copy;2014 - Coffee Shop </footer>
 	</div>
+        
+        <!--
+To collect end-user usage analytics about your application,
+insert the following script into each page you want to track.
+Place this code immediately before the closing </head> tag,
+and before any other scripts. Your first data will appear
+automatically in just a few seconds.
+-->
+    <script type="text/javascript">
+        var appInsights=window.appInsights||function(config){
+            function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;for(s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
+        }({
+            instrumentationKey:"14d0422b-d48f-4c41-8f23-b44b3c6e55eb"
+        });
+        
+        window.appInsights=appInsights;
+        appInsights.trackPageView();
+    </script>
 </body>
 </html>
