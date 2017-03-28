@@ -56,6 +56,8 @@
 								<p class="description"><%= product.getDescription() %></p>
 							</div>
 						</li>
+						<!--
+							
                         <li class="name">
 							<div class="fieldcontainer" data-role="fieldcontain">
 								<label for="orderEmail">Name</label> <input
@@ -68,6 +70,7 @@
 								</div>
 							</div>
 						</li>
+						-->
 						<li class="email">
 							<div class="fieldcontainer" data-role="fieldcontain">
 								<label for="orderEmail">Your Email Address</label> <input
@@ -122,7 +125,7 @@
                     var logicAppURL = '<%=System.getenv("logicAppURL")%>';
                                    
               //       var order = {"name" : name, "location": location, "quantity": quantity, "product": product, "total": total, "emailAddress": email};
-			         var order = {"product": product, "total": total, "emailAddress": email, "preferredLanguage":"Hello there"};
+			         var order = {"coffeeType": product, "total": total, "emailAddress": email, "preferredLanguage":"Hello there"};
                     $.ajax({
                         type: "POST",
                          headers: {
